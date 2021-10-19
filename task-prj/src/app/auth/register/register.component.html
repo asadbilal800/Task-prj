@@ -1,1 +1,74 @@
-<p>register works!</p>
+<div class="main-container" fxLayout>
+  <div fxFlex="80" class="animate__animated animate__fadeInLeft">
+    <form>
+      <div fxLayout>
+        <div fxFlex="30"></div>
+        <div fxFlex="70">
+          <div fxLayout="column" fxLayoutGap="5%">
+            <mat-form-field>
+              <mat-label> Email</mat-label>
+              <input
+                type="text"
+                matInput
+                required
+                name="email"
+              />
+              <!--#username="ngModel"-->
+
+              <!--              <mat-error *ngIf="username.hasError('required')"-->
+              <!--              >{{requiredMessage}}</mat-error-->
+              <!--              >-->
+              <!--              <mat-error *ngIf="username.hasError('email')"-->
+              <!--              >{{emailFormat}}</mat-error-->
+              <!--              >-->
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label> Username</mat-label>
+              <input
+                type="text"
+                matInput
+                required
+                name="username"
+                ngModel
+                email/>
+              <!--#username="ngModel"-->
+
+              <!--              <mat-error *ngIf="username.hasError('required')"-->
+              <!--              >{{requiredMessage}}</mat-error-->
+              <!--              >-->
+              <!--              <mat-error *ngIf="username.hasError('email')"-->
+              <!--              >{{emailFormat}}</mat-error-->
+              <!--              >-->
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input
+                type="password"
+                required
+                name="password"
+                ngModel
+                matInput/>
+              <!--#password="ngModel"-->
+              <!--              <mat-error *ngIf="password.hasError('required')"-->
+              <!--              >{{requiredMessage}}</mat-error-->
+              <!--              >-->
+            </mat-form-field>
+            <button
+              mat-raised-button
+              color="warn"
+              id="login"
+              type="submit">
+              <!--              [disabled]="!form.valid"-->
+              <i class="fas fa-sign-in-alt"></i> Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
