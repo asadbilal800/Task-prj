@@ -9,6 +9,7 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -17,15 +18,16 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ProfileSettingComponent,
     DashboardComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        TranslateModule
+    ]
 })
 export class DashboardModule {
 }

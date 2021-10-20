@@ -7,9 +7,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared.module";
 import {firebaseConfig} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormlyModule } from '@ngx-formly/core';
-import { FormlyMaterialModule } from '@ngx-formly/material';
+import {HttpClient} from "@angular/common/http";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+
+
 
 @NgModule({
   declarations: [
