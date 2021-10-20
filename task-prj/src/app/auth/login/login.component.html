@@ -1,51 +1,20 @@
-<div class="main-container" fxLayout>
-  <div fxFlex="80" class="animate__animated animate__fadeInRight">
-    <form [formGroup]="loginForm" (ngSubmit)="submit()">
-      <div fxLayout>
-        <div fxFlex="28"></div>
-        <div fxFlex="70">
+<div class="main-container" fxLayout fxLayoutAlign="center center">
+  <div fxFlex="50" fxFlex.lt-md="100" class="animate__animated animate__fadeInRight">
+    <form [formGroup]="loginForm" (ngSubmit)="login(model)">
+        <div>
           <div fxLayout="column" fxLayoutGap="5%">
-            <mat-form-field>
-              <mat-label> Email</mat-label>
-              <input
-                type="text"
-                matInput
-                required
-                name="username"
-              />
-              <!--#username="ngModel"-->
-
-              <!--              <mat-error *ngIf="username.hasError('required')"-->
-              <!--              >{{requiredMessage}}</mat-error-->
-              <!--              >-->
-              <!--              <mat-error *ngIf="username.hasError('email')"-->
-              <!--              >{{emailFormat}}</mat-error-->
-              <!--              >-->
-            </mat-form-field>
-            <mat-form-field>
-              <mat-label>Password</mat-label>
-              <input
-                type="password"
-                required
-                name="password"
-                matInput/>
-              <!--#password="ngModel"-->
-              <!--              <mat-error *ngIf="password.hasError('required')"-->
-              <!--              >{{requiredMessage}}</mat-error-->
-              <!--              >-->
-            </mat-form-field>
+            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="loginForm"></formly-form>
             <a routerLink="/auth/register">Dont have an account? Sign Up!</a>
             <button
               mat-raised-button
               color="primary"
               id="login"
-              type="submit">
-              <!--              [disabled]="!form.valid"-->
+              type="submit"
+              [disabled]="!loginForm.valid">
               <i class="fas fa-sign-in-alt"></i> Login
             </button>
           </div>
         </div>
-      </div>
     </form>
   </div>
 </div>

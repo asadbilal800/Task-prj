@@ -7,6 +7,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared.module";
 import {firebaseConfig} from "../environments/environment";
 import {AngularFireModule} from "@angular/fire/compat";
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyMaterialModule } from '@ngx-formly/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,6 @@ import {AngularFireModule} from "@angular/fire/compat";
     BrowserAnimationsModule,
     SharedModule,
     AngularFireModule.initializeApp(firebaseConfig),
-
 
   ],
   providers: [],

@@ -11,6 +11,7 @@ import {FlexModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
 import {SharedModule} from "../shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {FormlyModule} from "@ngx-formly/core";
 
 
 @NgModule({
@@ -18,18 +19,20 @@ import {ReactiveFormsModule} from "@angular/forms";
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    FlexModule,
-    MatInputModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        FlexModule,
+        MatInputModule,
+        SharedModule,
+        ReactiveFormsModule,
+        FormlyModule,
+
+    ]
 })
 export class AuthModule {
 }
