@@ -9,6 +9,6 @@ import {TranslateService} from "@ngx-translate/core";
 export class AppComponent {
   title = 'task-prj';
   constructor(private translateService: TranslateService) {
-    this.translateService.use('tr-TR');
+    this.translateService.use('en-US');
   }
 }

@@ -49,7 +49,6 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(login.username, login.password)
       .then(() => {
         this.firestoreAuth.idToken.subscribe((token) => {
-          localStorage.setItem('token', token);
           this.router.navigate(['/dashboard']);
         });
       })
