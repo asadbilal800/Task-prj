@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {FormlyFieldConfig, FormlyFormOptions} from "@ngx-formly/core";
-import {signupModel} from "../../model/register.model";
+import {signupModel} from "../../Common/model/register.model";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {MatSnackBar} from "@angular/material/snack-bar";
 

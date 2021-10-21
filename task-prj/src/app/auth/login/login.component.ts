@@ -4,7 +4,7 @@ import {FormlyFieldConfig, FormlyFormOptions} from "@ngx-formly/core";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import { loginModel} from "../../model/login.model";
+import { loginModel} from "../../Common/model/login.model";
 
 @Component({
   selector: 'app-login',

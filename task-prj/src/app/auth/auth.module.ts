@@ -9,7 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FlexModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
-import {SharedModule} from "../shared.module";
+import {SharedModule} from "../Common/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {FormlyModule} from "@ngx-formly/core";
 
