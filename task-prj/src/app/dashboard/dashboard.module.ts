@@ -15,7 +15,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatInputModule} from "@angular/material/input";
 import {ChatModule} from "@progress/kendo-angular-conversational-ui";
-import {SharedModule} from "../Common/shared.module";
+import {SharedModule} from "../../common/shared.module";
+import {AuthGuard} from "../../common/Services/auth-guard.service";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -38,8 +40,10 @@ import {SharedModule} from "../Common/shared.module";
     MatTooltipModule,
     MatInputModule,
     ChatModule,
-    SharedModule
-  ]
+    SharedModule,
+    MatCardModule
+  ],
+  providers:[AuthGuard]
 })
 export class DashboardModule {
 }

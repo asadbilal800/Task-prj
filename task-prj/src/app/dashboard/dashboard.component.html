@@ -1,0 +1,33 @@
+<mat-toolbar [color]="'primary'">
+  <button mat-icon-button>
+    <mat-icon  (click)="sidenav.toggle()">menu</mat-icon>
+  </button>
+  <span class="text-center">{{"CHAT-APP" | translate}} <i class="fas fa-comments"></i></span>
+</mat-toolbar>
+
+
+<mat-sidenav-container (click)="sidenav.close()">
+  <mat-sidenav #sidenav opened="false" mode="side">
+    <h4>CHAT-APP <i class="fas fa-comments"></i></h4>
+    <mat-list>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <a mat-icon-button routerLink="me">
+          <mat-icon>account_circle</mat-icon>
+          Edit Profile</a
+        >
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
+        <a mat-icon-button (click)="signOut()">
+          <mat-icon>logout</mat-icon>
+          Logout</a
+        >
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

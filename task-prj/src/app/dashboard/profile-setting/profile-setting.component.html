@@ -1,0 +1,56 @@
+<h1 class="text-center">Edit Profile</h1>
+<div class="main-container">
+  <div fxFlex.gt-sm="20" ></div>
+  <div fxLayout="column" fxFlex>
+    <div>
+      <h3>Email :</h3>
+      <div fxLayout>
+        <p fxFlex>
+          {{ "test123@ymail.com" }}
+        </p>
+        <div fxLayoutAlign="flex-end">
+          <mat-icon matTooltip="Sorry You Cannot Edit This.">lock</mat-icon>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <div>
+      <h3>Username :</h3>
+      <div fxLayout>
+        <p fxFlex>
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              [value]="'mytest123'"
+              [disabled]="usernameInput"
+              #usernameRef
+            />
+          </mat-form-field>
+          <button  class="ml-3" mat-raised-button color="warn" *ngIf="!usernameInput" (click)="save('username',usernameRef.value)">Save <i class="fas fa-save"></i></button>
+        </p>
+        <div fxLayoutAlign="flex-end">
+          <button mat-icon-button (click)="this.usernameInput = !this.usernameInput;">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div>
+      <h3>Password :</h3>
+      <div fxLayout>
+        <p fxFlex>
+          *********
+        </p>
+        <div fxLayoutAlign="flex-end">
+          <mat-icon matTooltip="Sorry You Cannot Edit This.">lock</mat-icon>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+  </div>
+  <div fxFlex.gt-sm="20"></div>
+ </div>

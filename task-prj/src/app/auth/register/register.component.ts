@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { FormGroup} from "@angular/forms";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {FormlyFieldConfig, FormlyFormOptions} from "@ngx-formly/core";
-import {signupModel} from "../../Common/model/register.model";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {signupModel} from "../../../common/models/register.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
       type: 'input',
       templateOptions: {
         label: 'password',
+        type: 'password',
         placeholder: 'Enter password',
         required: true,
       },
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
   ];
 
   constructor(private firestorAuth: AngularFireAuth,private firestore: AngularFirestore,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,private router: Router) {
   }
 
   ngOnInit(): void {
@@ -68,6 +70,7 @@ export class RegisterComponent implements OnInit {
               duration: 8000,
               verticalPosition: 'top',
             });
+            this.router.navigate(['/auth/login'])
           });
       })
       .catch((error) => {

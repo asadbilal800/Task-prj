@@ -1,0 +1,13 @@
+mat-sidenav-container{
+  margin : 0;
+  height: 100%;
+  background-color: aliceblue;
+}
+
+mat-sidenav{
+  width: 18%;
+  height: 150%;
+  position: fixed;
+  margin:0;
+
+}

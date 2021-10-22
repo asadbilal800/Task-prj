@@ -4,7 +4,7 @@ import {FormlyFieldConfig, FormlyFormOptions} from "@ngx-formly/core";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import { loginModel} from "../../Common/model/login.model";
+import {loginModel} from "../../../common/models/login.model";
 
 @Component({
   selector: 'app-login',
@@ -20,9 +20,10 @@ export class LoginComponent implements OnInit {
       key: 'username',
       type: 'input',
       templateOptions: {
-        label: 'username',
-        placeholder: 'Enter username',
+        label: 'email',
+        placeholder: 'Enter email',
         required: true,
+
       },
     },
     {
