@@ -18,31 +18,36 @@ import {ChatModule} from "@progress/kendo-angular-conversational-ui";
 import {SharedModule} from "../../common/shared.module";
 import {AuthGuard} from "../../common/Services/auth-guard.service";
 import {MatCardModule} from "@angular/material/card";
+import { StatsComponent } from './stats/stats.component';
+import {ChartModule, SparklineModule} from "@progress/kendo-angular-charts";
 
 
 @NgModule({
   declarations: [
     InboxComponent,
     ProfileSettingComponent,
-    DashboardComponent
+    DashboardComponent,
+    StatsComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule,
-    TranslateModule,
-    FlexModule,
-    MatFormFieldModule,
-    MatTooltipModule,
-    MatInputModule,
-    ChatModule,
-    SharedModule,
-    MatCardModule
-  ],
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        MatSidenavModule,
+        MatListModule,
+        MatIconModule,
+        MatButtonModule,
+        MatToolbarModule,
+        TranslateModule,
+        FlexModule,
+        MatFormFieldModule,
+        MatTooltipModule,
+        MatInputModule,
+        ChatModule,
+        SharedModule,
+        MatCardModule,
+        ChartModule,
+        SparklineModule
+    ],
   providers:[AuthGuard]
 })
 export class DashboardModule {

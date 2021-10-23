@@ -5,6 +5,8 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {loginModel} from "../../../common/models/login.model";
+import {LOGIN_FORM_CONFIG} from "../../../common/globals";
+import {CommonService} from "../../../common/Services/common.service";
 
 @Component({
   selector: 'app-login',
@@ -15,29 +17,10 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'username',
-      type: 'input',
-      templateOptions: {
-        label: 'email',
-        placeholder: 'Enter email',
-        required: true,
+  fields: FormlyFieldConfig[] = LOGIN_FORM_CONFIG
 
-      },
-    },
-    {
-      key: 'password',
-      type: 'input',
-      templateOptions: {
-        label: 'password',
-        placeholder: 'Enter password',
-        required: true,
-      },
-    },
-  ];
   constructor(private firestoreAuth: AngularFireAuth,private snackbar: MatSnackBar,
-              private router: Router
+              private router: Router,private commonSrv: CommonService
 
   ) {
   }
@@ -49,6 +32,8 @@ export class LoginComponent implements OnInit {
     this.firestoreAuth
       .signInWithEmailAndPassword(login.username, login.password)
       .then(() => {
+        localStorage.setItem('auth',"true");
+        this.commonSrv.isAuth$.next();
         this.firestoreAuth.idToken.subscribe((token) => {
           this.router.navigate(['/dashboard']);
         });

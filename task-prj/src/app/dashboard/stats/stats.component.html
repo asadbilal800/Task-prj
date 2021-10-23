@@ -1,0 +1,13 @@
+<div class="main-container" fxLayout="column">
+
+  <h1 class="lead text-center">Total messages of users last 10 days</h1>
+  <kendo-chart>
+    <kendo-chart-area background="#eee" [margin]="30"> </kendo-chart-area>
+    <kendo-chart-series>
+      <kendo-chart-series-item name="Fibonacci" [data]="seriesData">
+      </kendo-chart-series-item>
+    </kendo-chart-series>
+  </kendo-chart>
+
+</div>
+

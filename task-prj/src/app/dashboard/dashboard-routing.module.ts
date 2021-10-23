@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from "./dashboard.component";
 import {ProfileSettingComponent} from "./profile-setting/profile-setting.component";
 import {InboxComponent} from "./inbox/inbox.component";
+import {StatsComponent} from "./stats/stats.component";
 
 const routes: Routes = [
 
@@ -11,12 +12,16 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path:'profile',
+        path: 'profile',
         component: ProfileSettingComponent
       },
       {
-        path:'inbox/:id',
+        path: 'inbox',
         component: InboxComponent
+      },
+      {
+        path: 'statistics',
+        component: StatsComponent
       }
     ]
   },

@@ -1,48 +1,23 @@
+<h4 class="text-center"><u>{{currentChat}}</u></h4>
 <div class="main-container" fxLayout fxLayoutAlign="space-evenly">
 
-  <mat-card fxFlex="20">
-    <p class="text-center"><b>Inbox <i class="fas fa-inbox"></i> </b></p>
-    <mat-list>
-      <mat-list-item>
-        <p>
-          <i class="fas fa-comment-alt"></i>
-          Message From Bushra
-        </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-    </mat-list>
-  </mat-card>
-  <kendo-chat fxFlex="50"
+  <kendo-chat fxFlex="70"
               [messages]="chatData$ | async"
               [user]="user"
               (sendMessage)="sendMessage($event)"
+
   >
   </kendo-chat>
   <mat-card fxFlex="20">
     <p class="text-center"><b>Available Employees <i class="fas fa-user-friends"></i> </b></p>
-    <mat-list>
-      <mat-list-item>
+    <mat-list *ngFor="let user of listOfAvailableUsers">
+      <mat-list-item (click)="showChat(user.uid,user.username)">
         <p>
-          <img matListAvatar src="assets/avatar.png" />
-          Farah Javed
+          <img matListAvatar src="assets/avatar.png"/>
+          {{user.username}}
         </p>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item>
-        <p>
-          <img matListAvatar src="assets/avatar.png" />
-          Bushra Kiyani
-        </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-      <mat-list-item>
-        <p>
-          <img matListAvatar src="assets/avatar.png" />
-          Usman Khan
-        </p>
-      </mat-list-item>
-      <mat-divider></mat-divider>
-
     </mat-list>
   </mat-card>
 </div>

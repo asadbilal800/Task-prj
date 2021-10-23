@@ -1,0 +1,24 @@
+<mat-toolbar [color]="'primary'">
+  <button mat-icon-button>
+    <mat-icon *ngIf="isAuth" (click)="toggle()">menu</mat-icon>
+  </button>
+  <span class="text-center">{{"CHAT-APP" | translate}} <i class="fas fa-comments"></i></span>
+  <div fxFlex="80">
+  </div>
+
+  <mat-nav-list fxLayout *ngIf="isAuth">
+    <a mat-list-item matTooltip="Your Messages">
+      <button mat-icon-button (click)="washOutNotification()" routerLink="/dashboard/inbox">
+        <mat-icon [matBadge]=numberOfMessages matBadgeColor="warn">question_answer</mat-icon>
+      </button>
+    </a>
+
+    <a mat-list-item matTooltip="Logout">
+      <button mat-icon-button (click)="signout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </a>
+  </mat-nav-list>
+
+
+</mat-toolbar>
