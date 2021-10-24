@@ -13,10 +13,9 @@ import {CommonService} from "../../../common/Services/common.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginForm = new FormGroup({});
   model: any = {};
-  options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = LOGIN_FORM_CONFIG
 
   constructor(private firestoreAuth: AngularFireAuth,private snackbar: MatSnackBar,
@@ -25,9 +24,9 @@ export class LoginComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-  }
 
+  //when the user clicks login,the data will be stored in the firebase via angular fire.
+  //and appropriate response will be shown in the snackbar
   login(login: loginModel) {
     this.firestoreAuth
       .signInWithEmailAndPassword(login.username, login.password)

@@ -20,6 +20,8 @@ export class ProfileSettingComponent implements OnInit {
   ) {
   }
 
+  // on initialization the profile editing component
+  // user data will be fetched and displayed in the editted input place.
   ngOnInit(): void {
     this.firestoreAuth.user.subscribe(userData => {
       this.fireStore
@@ -35,7 +37,8 @@ export class ProfileSettingComponent implements OnInit {
 
   }
 
-  save(username: string, value: string) {
+  //the update message will update the values of input to firebase.
+  update(username: string, value: string) {
     this.fireStore
       .collection('mydb')
       .doc("xnr4pfHSdTTbfPfPFiRO")

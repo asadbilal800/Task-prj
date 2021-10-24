@@ -1,10 +1,33 @@
-<div class="main-container" fxLayout="column">
+<div class="main-container" fxLayout="column" fxLayoutGap="5%">
 
-  <h1 class="lead text-center">Total messages of users last 10 days</h1>
+  <mat-card>
+    <p class="text-center"><b>{{"Last 10 Messages of User." | translate}} <i class="fas fa-user-friends"></i> </b></p>
+    <mat-list *ngFor="let msg of listOfLatestMsgs">
+      <mat-list-item >
+        <p>
+         <mat-icon>arrow_forward_ios</mat-icon> {{msg.text}}
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+
+  <mat-card >
+    <p class="text-center"><b>{{"Most Frequest User"| translate}} <i class="fas fa-user-friends"></i> </b></p>
+    <mat-list *ngFor="let user of frequestUser">
+      <mat-list-item >
+        <p>
+          <mat-icon>person</mat-icon> {{user}}
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+  <h1 class="lead text-center">{{"Total messages Distribution per user"| translate}}</h1>
   <kendo-chart>
     <kendo-chart-area background="#eee" [margin]="30"> </kendo-chart-area>
     <kendo-chart-series>
-      <kendo-chart-series-item name="Fibonacci" [data]="seriesData">
+      <kendo-chart-series-item name="Distribution" [data]="seriesData">
       </kendo-chart-series-item>
     </kendo-chart-series>
   </kendo-chart>

@@ -1,3 +1,5 @@
+<!--i have used kendo api for kendo chat and for displaying available employees as a list,-->
+<!--i have used mat-card from angular material-->
 <h4 class="text-center"><u>{{currentChat}}</u></h4>
 <div class="main-container" fxLayout fxLayoutAlign="space-evenly">
 
@@ -9,7 +11,7 @@
   >
   </kendo-chat>
   <mat-card fxFlex="20">
-    <p class="text-center"><b>Available Employees <i class="fas fa-user-friends"></i> </b></p>
+    <p class="text-center"><b>{{"Available Employees" | translate}} <i class="fas fa-user-friends"></i> </b></p>
     <mat-list *ngFor="let user of listOfAvailableUsers">
       <mat-list-item (click)="showChat(user.uid,user.username)">
         <p>

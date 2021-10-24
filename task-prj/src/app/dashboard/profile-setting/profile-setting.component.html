@@ -2,7 +2,7 @@
   <div fxFlex.gt-sm="20" ></div>
   <div fxLayout="column" fxFlex>
     <div>
-      <h3>Email :</h3>
+      <h3>{{"Email" | translate}} :</h3>
       <div fxLayout>
         <p fxFlex>
           {{ userModel?.email }}
@@ -15,7 +15,7 @@
     </div>
 
     <div>
-      <h3>Username :</h3>
+      <h3>{{"Username" | translate}} :</h3>
       <div fxLayout>
         <p fxFlex>
           <mat-form-field>
@@ -27,7 +27,7 @@
               #usernameRef
             />
           </mat-form-field>
-          <button  class="ml-3" mat-raised-button color="warn" *ngIf="!usernameInput" (click)="save('username',usernameRef.value)">Save <i class="fas fa-save"></i></button>
+          <button  class="ml-3" mat-raised-button color="warn" *ngIf="!usernameInput" (click)="update('username',usernameRef.value)">Save <i class="fas fa-save"></i></button>
         </p>
         <div fxLayoutAlign="flex-end">
           <button mat-icon-button (click)="this.usernameInput = !this.usernameInput;">
@@ -38,7 +38,7 @@
       <hr />
     </div>
     <div>
-      <h3>Password :</h3>
+      <h3>{{"Password" | translate}} :</h3>
       <div fxLayout>
         <p fxFlex>
           *********

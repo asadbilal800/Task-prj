@@ -20,6 +20,9 @@ import {AuthGuard} from "../../common/Services/auth-guard.service";
 import {MatCardModule} from "@angular/material/card";
 import { StatsComponent } from './stats/stats.component';
 import {ChartModule, SparklineModule} from "@progress/kendo-angular-charts";
+import {MatTableModule} from "@angular/material/table";
+import {MatSelectModule} from "@angular/material/select";
+import 'hammerjs';
 
 
 @NgModule({
@@ -46,7 +49,9 @@ import {ChartModule, SparklineModule} from "@progress/kendo-angular-charts";
         SharedModule,
         MatCardModule,
         ChartModule,
-        SparklineModule
+        SparklineModule,
+        MatTableModule,
+        MatSelectModule
     ],
   providers:[AuthGuard]
 })

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { FormGroup} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {FormlyFieldConfig, FormlyFormOptions} from "@ngx-formly/core";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
@@ -16,13 +16,14 @@ import {REGISTER_FORM_CONFIG} from "../../../common/globals";
 export class RegisterComponent {
   registerForm = new FormGroup({});
   model: any = {};
-  options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[] = REGISTER_FORM_CONFIG
 
-  constructor(private firestorAuth: AngularFireAuth,private firestore: AngularFirestore,
-              private snackBar: MatSnackBar,private router: Router) {
+  constructor(private firestorAuth: AngularFireAuth, private firestore: AngularFirestore,
+              private snackBar: MatSnackBar, private router: Router) {
   }
 
+  //when the user clicks login,the data will be stored in the firebase via angular fire.
+  //and appropriate response will be shown in the snackbar
   register(model: signupModel) {
 
     this.firestorAuth

@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
               private commonSrv: CommonService) {
   }
 
+  //on init,this is basically to toggle the sidenav from any side of the screen.
   ngOnInit(): void {
     this.commonSrv.sidebarToggler$.subscribe(data => {
       this.sideNav?.toggle();
@@ -24,13 +25,15 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  //when user click logout,clear the local storage,observable and route to login again.
   signOut() {
     localStorage.clear()
-    this.firestoreAuth.signOut().then(() => {
-      this.router.navigate(['/auth/login'])
+    setTimeout(()=> {
       this.commonSrv.isAuth$.next();
+      this.router.navigate(['/auth/login']).then(()=> {
+      })
+    },500)
 
 
-    })
   }
 }

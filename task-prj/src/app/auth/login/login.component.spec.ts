@@ -10,7 +10,7 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {loginModel} from "../../../common/models/login.model";
 
 // i wrote some normal testing for login  components by checking
-//their existence aswell as the core functionality
+//their existence as well as the core functionality
 
 describe('Component: Login', () => {
   beforeEach(async(() => {

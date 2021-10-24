@@ -19,6 +19,7 @@ export class AuthGuard implements CanActivate {
     })
   }
 
+  //if user is authenticated then log in,else re-direct to login
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.isLoggedIn) {
       return true

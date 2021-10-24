@@ -1,33 +1,34 @@
 <mat-sidenav-container (click)="sidenav.close()">
   <mat-sidenav #sidenav opened="false" mode="side">
-    <h4 class="text-center">CHAT-APP <i class="fas fa-comments"></i></h4>
+    <h4 class="text-center">{{"CHAT-APP"| translate}} <i class="fas fa-comments"></i></h4>
     <mat-list>
       <mat-divider></mat-divider>
       <mat-list-item>
         <a mat-icon-button routerLink="inbox">
           <mat-icon>question_answer</mat-icon>
-          Inbox</a
+          {{"Inbox" | translate}}</a
         >
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
         <a mat-icon-button routerLink="statistics">
           <mat-icon>trending_up</mat-icon>
-          Statistics</a
+          {{"Statistics" | translate}}</a
         >
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
         <a mat-icon-button routerLink="profile">
           <mat-icon>account_circle</mat-icon>
-          Edit Profile</a
+          {{"Edit Profile" | translate}}</a
         >
+
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item>
         <a mat-icon-button (click)="signOut()">
           <mat-icon>logout</mat-icon>
-          Logout</a
+          {{"Logout" | translate}}</a
         >
       </mat-list-item>
       <mat-divider></mat-divider>
@@ -37,3 +38,6 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+

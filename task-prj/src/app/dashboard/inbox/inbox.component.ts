@@ -22,6 +22,7 @@ export class InboxComponent implements OnInit {
   user = USER;
   chatData$: Observable<any>;
   userUID: string;
+  username:string
   recipientUserUID: string;
   listOfAvailableUsers: signupModel[] = []
   currentChat;
@@ -30,6 +31,7 @@ export class InboxComponent implements OnInit {
               private commonSrv: CommonService) {
   }
 
+  //on initiliazation this component,iam just washing away my message notification from firebase.
   ngOnInit(): void {
 
     this.commonSrv.washNotification$.next();
@@ -54,6 +56,9 @@ export class InboxComponent implements OnInit {
             if (user.uid !== this.userUID) {
               this.listOfAvailableUsers.push(user as signupModel)
             }
+            else {
+              this.username = user.username
+            }
           })
         })
     })
@@ -61,6 +66,7 @@ export class InboxComponent implements OnInit {
 
   }
 
+  //on sending a message to employee,subsequent firebase base queries will run.
   sendMessage(e: SendMessageEvent): void {
     if (this.recipientUserUID) {
       this.firestore.collection('mydb')
@@ -81,13 +87,25 @@ export class InboxComponent implements OnInit {
               .doc("xnr4pfHSdTTbfPfPFiRO")
               .collection('users')
               .doc(this?.recipientUserUID)
-              .update({'unSeenMessages': FieldValue.increment(1)})
+              .update({'unSeenMessages': FieldValue.increment(1),
+                  'friends': FieldValue.arrayUnion(this.username)},
+                )
+              .then(()=> {
+                this.firestore.collection('mydb')
+                  .doc("xnr4pfHSdTTbfPfPFiRO")
+                  .collection('users')
+                  .doc(this.recipientUserUID)
+                  .collection(`total-messages-received`)
+                  .add(e.message)
+              })
           });
       });
     }
 
   }
 
+  //show chat function will run whenever use clicks any available employees,so firebase will fetch
+  //its persistant chat history
   showChat(uid: string, username: string) {
     this.recipientUserUID = uid;
     this.currentChat = username
@@ -100,7 +118,6 @@ export class InboxComponent implements OnInit {
       .valueChanges()
       .pipe(
         map(data => {
-          console.log(data)
           let sortedArray = data.sort(function (a, b) {
             return a['timestamp'] - b['timestamp']
           });

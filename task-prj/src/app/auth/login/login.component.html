@@ -1,3 +1,4 @@
+<!--i have made this page responsive by using angular flex,you see where fxHide or fxlt-md is used.-->
 <div class="main-container" fxLayout fxLayoutAlign="center center" fxLayoutGap="5%">
   <div fxLayout="column" fxFlex="30" fxHide.lt-md>
     <img fxFlex="20" src="assets/login.svg">
@@ -8,7 +9,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="login(model)">
         <div>
           <div fxLayout="column" fxLayoutGap="5%">
-            <formly-form [model]="model" [fields]="fields" [options]="options" [form]="loginForm"></formly-form>
+            <formly-form [model]="model" [fields]="fields"[form]="loginForm"></formly-form>
             <a routerLink="/auth/register">Dont have an account? Sign Up!</a>
             <button
               mat-raised-button

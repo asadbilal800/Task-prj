@@ -1,0 +1,14 @@
+{
+  "CHAT-APP" : "Application de chat",
+  "Select Language": "Choisir la langue",
+  "Inbox": "Boîte de réception",
+  "Statistics": "Statistiques",
+   "Edit Profile": "Editer le profil",
+    "Logout" : "Se déconnecter",
+   "Last 10 Messages of User.": "Les 10 derniers messages de l'utilisateur.",
+   "Most Frequest User" : "Utilisateur le plus fréquent",
+  "Total messages Distribution per user" : "Total des messages Distribution par utilisateur",
+  "Password": "Mot de passe",
+  "Username": "Nom d'utilisateur",
+  "Available Employees":"Employés disponibles"
+}

@@ -1,9 +1,11 @@
+<!--i have made this page responsive by using angular flex,fxlt-md is used.-->
+
 <div class="main-container" fxLayout fxLayoutAlign="center center">
   <div fxFlex="50" fxFlex.lt-md="100" class="animate__animated animate__fadeInLeft">
     <form [formGroup]="registerForm" (ngSubmit)="register(model)">
       <div>
         <div fxLayout="column" fxLayoutGap="5%">
-          <formly-form [model]="model" [fields]="fields" [options]="options" [form]="registerForm"></formly-form>
+          <formly-form [model]="model" [fields]="fields"  [form]="registerForm"></formly-form>
           <button
             mat-raised-button
             color="warn"

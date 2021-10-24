@@ -12,6 +12,11 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'statistics'
+      },
+      {
         path: 'profile',
         component: ProfileSettingComponent
       },

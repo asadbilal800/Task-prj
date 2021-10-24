@@ -13,11 +13,19 @@
       </button>
     </a>
 
-    <a mat-list-item matTooltip="Logout">
-      <button mat-icon-button (click)="signout()">
-        <mat-icon>logout</mat-icon>
-      </button>
+    <a mat-list-item>
+      <mat-form-field appearance="legacy">
+        <mat-label>{{'Select Language' | translate}}</mat-label>
+        <mat-select  [(ngModel)]="currentLanguage"
+                    (selectionChange)="onChange()">
+          <mat-option *ngFor="let lang of languageList" [value]="lang">
+            {{lang}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
     </a>
+
   </mat-nav-list>
 
 
