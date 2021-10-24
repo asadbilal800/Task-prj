@@ -8,7 +8,6 @@ import {signupModel} from "../../../common/models/register.model";
 import {USER} from "../../../common/globals";
 import firebase from "firebase/compat/app";
 import FieldValue = firebase.firestore.FieldValue;
-import {CommonService} from "../../../common/Services/common.service";
 
 
 @Component({
@@ -28,13 +27,12 @@ export class InboxComponent implements OnInit {
   currentChat;
 
   constructor(private firestore: AngularFirestore, private firestoreAuth: AngularFireAuth,
-              private commonSrv: CommonService) {
+              ) {
   }
 
   //on initiliazation this component,iam just washing away my message notification from firebase.
   ngOnInit(): void {
 
-    this.commonSrv.washNotification$.next();
     this.firestoreAuth.user.subscribe(userData => {
       this.firestore.collection('mydb')
         .doc("xnr4pfHSdTTbfPfPFiRO")
@@ -50,8 +48,8 @@ export class InboxComponent implements OnInit {
         .doc('xnr4pfHSdTTbfPfPFiRO')
         .collection('users')
         .valueChanges()
-        .pipe(take(1))
         .subscribe((data) => {
+          this.listOfAvailableUsers = []
           data.forEach(user => {
             if (user.uid !== this.userUID) {
               this.listOfAvailableUsers.push(user as signupModel)
@@ -86,8 +84,8 @@ export class InboxComponent implements OnInit {
             this.firestore.collection('mydb')
               .doc("xnr4pfHSdTTbfPfPFiRO")
               .collection('users')
-              .doc(this?.recipientUserUID)
-              .update({'unSeenMessages': FieldValue.increment(1),
+              .doc(this.recipientUserUID)
+              .update({
                   'friends': FieldValue.arrayUnion(this.username)},
                 )
               .then(()=> {

@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from "@angular/router";
 import {Observable} from "rxjs";
-import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {CommonService} from "./common.service";
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +11,9 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 export class AuthGuard implements CanActivate {
   isLoggedIn = false;
 
-  constructor(private firestoreAuth: AngularFireAuth, private router: Router) {
-    this.firestoreAuth.idToken.subscribe(data => {
-      if (data) {
+  constructor(private commonSrv: CommonService, private router: Router) {
+    this.commonSrv.isAuth$.subscribe(data => {
         this.isLoggedIn = true;
-      }
     })
   }
 

@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
     localStorage.clear()
     setTimeout(()=> {
       this.commonSrv.isAuth$.next();
+
       this.router.navigate(['/auth/login']).then(()=> {
       })
     },500)

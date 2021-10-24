@@ -3,7 +3,6 @@ import {CommonService} from "../../common/Services/common.service";
 import {Router} from "@angular/router";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {take} from "rxjs/operators";
 import {TranslateService} from "@ngx-translate/core";
 import {LANG} from "../../common/globals";
 
@@ -33,46 +32,10 @@ export class NavbarComponent implements OnInit {
 
     this.commonSrv.isAuth$.subscribe(data => {
       if (localStorage.getItem('auth')) {
-        this.checkNotification();
         this.isAuth = true
       } else {
         this.isAuth = false
       }
-    })
-
-    this.commonSrv.washNotification$.subscribe(()=> {
-      this.washOutNotification()
-    })
-  }
-
-  checkNotification(){
-    this.firestoreAuth.user.subscribe(userData => {
-      if(userData){
-        this.firestore.collection('mydb')
-          .doc("xnr4pfHSdTTbfPfPFiRO")
-          .collection('users')
-          .doc(userData?.uid)
-          .valueChanges()
-          .pipe(take(1))
-          .subscribe((userData)=> {
-            if(userData.hasOwnProperty('unSeenMessages')){
-              this.numberOfMessages = userData['unSeenMessages']
-            }
-          })
-      }
-
-    })
-
-  }
-
-  washOutNotification() {
-    this.numberOfMessages = 0;
-    this.firestoreAuth.user.subscribe(userData => {
-      this.firestore.collection('mydb')
-        .doc("xnr4pfHSdTTbfPfPFiRO")
-        .collection('users')
-        .doc(userData?.uid)
-        .update({'unSeenMessages': 0})
     })
 
   }

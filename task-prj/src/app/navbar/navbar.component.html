@@ -7,12 +7,6 @@
   </div>
 
   <mat-nav-list fxLayout *ngIf="isAuth">
-    <a mat-list-item >
-      <button mat-icon-button (click)="washOutNotification()" matTooltip="Total Number of Messages user has received" routerLink="/dashboard/inbox">
-        <mat-icon [matBadge]=numberOfMessages matBadgeColor="warn">question_answer</mat-icon>
-      </button>
-    </a>
-
     <a mat-list-item>
       <mat-form-field appearance="legacy">
         <mat-label>{{'Select Language' | translate}}</mat-label>

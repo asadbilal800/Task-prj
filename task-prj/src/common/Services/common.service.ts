@@ -11,7 +11,6 @@ export class CommonService {
 
   sidebarToggler$ = new Subject<void>();
   isAuth$ = new BehaviorSubject<void>(null);
-  washNotification$ =  new Subject<void>();
   constructor() {
   }
 }

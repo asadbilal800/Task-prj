@@ -33,9 +33,7 @@ export class LoginComponent {
       .then(() => {
         localStorage.setItem('auth',"true");
         this.commonSrv.isAuth$.next();
-        this.firestoreAuth.idToken.subscribe((token) => {
           this.router.navigate(['/dashboard']);
-        });
       })
       .catch((err) => {
         this.snackbar.open(err.message, 'X', {

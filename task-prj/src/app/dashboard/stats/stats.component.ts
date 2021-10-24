@@ -24,7 +24,7 @@ export class StatsComponent implements OnInit {
   }
 
 
-  //on initialization iam just fetching the stats which i have just mentioed in the above comments.
+  //on initialization iam just fetching the stats which i have just mentioned in the above comments.
   ngOnInit(): void {
 
     this.firestoreAuth.user.subscribe(userData => {
