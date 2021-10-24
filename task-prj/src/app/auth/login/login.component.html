@@ -1,4 +1,9 @@
-<div class="main-container" fxLayout fxLayoutAlign="center center">
+<div class="main-container" fxLayout fxLayoutAlign="center center" fxLayoutGap="5%">
+  <div fxLayout="column" fxFlex="30" fxHide.lt-md>
+    <img fxFlex="20" src="assets/login.svg">
+    <h1 class="text-center"><b>Chat Up!</b></h1>
+
+  </div>
   <div fxFlex="50" fxFlex.lt-md="100" class="animate__animated animate__fadeInRight">
     <form [formGroup]="loginForm" (ngSubmit)="login(model)">
         <div>

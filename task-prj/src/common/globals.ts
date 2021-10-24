@@ -1,3 +1,7 @@
+//common variables name or objects that are used in the entire project
+//are instantiated here,so to increase 'reusablity' facotr.
+
+
 import {User} from "@progress/kendo-angular-conversational-ui";
 
 export const USER: User = {

@@ -1,12 +1,15 @@
+/*i have used this font family in my whole project*/
 * {
   font-family:  Quicksand;
 }
 
+/*this class will be used for alligining item in the center*/
 .main-container {
   height:100%;
   padding: 2%;
 }
 
+/*this is for the body to make it all colorful*/
 body {
   background-color: aliceblue;
   height: 100%;

@@ -6,12 +6,14 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 @Injectable({
   providedIn: 'root'
 })
+
+// this class is basically used to protect the authenticated routes,mainly '/dashboard'
 export class AuthGuard implements CanActivate {
   isLoggedIn = false;
 
-  constructor(private firestoreAuth: AngularFireAuth,private router: Router) {
+  constructor(private firestoreAuth: AngularFireAuth, private router: Router) {
     this.firestoreAuth.idToken.subscribe(data => {
-      if(data){
+      if (data) {
         this.isLoggedIn = true;
       }
     })

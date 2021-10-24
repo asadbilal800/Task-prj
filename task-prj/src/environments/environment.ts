@@ -6,6 +6,7 @@ export const environment = {
   production: false
 };
 
+// firebase SDK configuration object just to configure backend services
 export const firebaseConfig = {
   apiKey: "AIzaSyDo2fItTXNEasIruWXKuixqoLxXJzkf6aw",
   authDomain: "front-end-task-cd8c6.firebaseapp.com",

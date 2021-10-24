@@ -7,7 +7,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {FlexModule} from "@angular/flex-layout";
+import {ExtendedModule, FlexModule} from "@angular/flex-layout";
 import {MatInputModule} from "@angular/material/input";
 import {SharedModule} from "../../common/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
@@ -31,6 +31,7 @@ import {FormlyModule} from "@ngx-formly/core";
         SharedModule,
         ReactiveFormsModule,
         FormlyModule,
+        ExtendedModule,
 
     ],
 })

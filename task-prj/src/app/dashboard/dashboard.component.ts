@@ -3,7 +3,6 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
 import {CommonService} from "../../common/Services/common.service";
 import {MatSidenav} from "@angular/material/sidenav";
-import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-dashboard',
@@ -26,10 +25,11 @@ export class DashboardComponent implements OnInit {
   }
 
   signOut() {
+    localStorage.clear()
     this.firestoreAuth.signOut().then(() => {
       this.router.navigate(['/auth/login'])
-      localStorage.clear()
       this.commonSrv.isAuth$.next();
+
 
     })
   }
